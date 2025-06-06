@@ -111,7 +111,7 @@ async function run() {
       }
     )
 
-    res.redirect('http://localhost:5173/success');
+    res.redirect('http://localhost:5173/upload');
 
     const payment = await paymentCollection.findOne({transactionId: data.tran_id})
 
@@ -129,10 +129,11 @@ async function run() {
     console.log(updatePayment)
    })
 
-app.get("/user", async (req, res)=>{
-  const query = req.params
+app.get("/user/:email", async (req, res)=>{
+  const email = req.params
+  console.log(email)
 
-  const response = await paymentCollection.findOne(query)
+  const response = await paymentCollection.findOne(email)
   res.send(response)
 })
 
