@@ -111,7 +111,7 @@ async function run() {
       }
     )
 
-    res.redirect('http://localhost:5173/upload');
+    res.redirect('https://edu-hub-c2c83.web.app/upload');
 
     const payment = await paymentCollection.findOne({transactionId: data.tran_id})
 
